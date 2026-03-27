@@ -1,0 +1,40 @@
+---
+title: 部署说明
+description: GOODKIDS 取号系统的 GitHub、Vercel、Supabase 和 Mintlify 部署方式。
+---
+
+# 部署说明
+
+## 业务站
+
+业务站部署在 Vercel，包含：
+
+- `/`
+- `/manage`
+- `/api/queue/status`
+- `/api/tickets`
+- `/api/admin/*`
+
+## 部署顺序
+
+1. 在 GitHub 创建 `goodkids-lineup-app`
+2. 将业务代码推送到 GitHub
+3. 在 Supabase 执行数据库脚本
+4. 在 Vercel 导入 GitHub 仓库
+5. 配置环境变量并部署
+
+## 必要环境变量
+
+```text
+ADMIN_PASSWORD
+SESSION_SECRET
+SERVICE_TIME_ZONE=Asia/Shanghai
+SUPABASE_URL
+SUPABASE_SERVICE_ROLE_KEY
+```
+
+## 文档站
+
+文档站推荐单独仓库 `goodkids-lineup-docs`，并由 Mintlify 托管。
+
+Mintlify 只负责文档说明，不承载这套业务 API。

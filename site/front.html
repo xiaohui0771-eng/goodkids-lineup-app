@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>&#21462;&#21495;</title>
+  <style>
+    html.file-mode body {
+      margin: 0;
+      font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+      background: #f7f9fd;
+      color: #1f2937;
+    }
+
+    html.file-mode main {
+      display: none;
+    }
+
+    .file-warning {
+      display: none;
+    }
+
+    html.file-mode .file-warning {
+      display: block;
+      max-width: 720px;
+      margin: 48px auto;
+      padding: 24px;
+      border: 1px solid #dbe3ef;
+      border-radius: 20px;
+      background: #ffffff;
+      box-shadow: 0 18px 48px rgba(15, 23, 42, 0.08);
+    }
+  </style>
+  <script>
+    if (location.protocol === "file:") {
+      document.documentElement.classList.add("file-mode");
+    }
+  </script>
+  <link rel="stylesheet" href="/app.css">
+</head>
+<body>
+  <section class="file-warning">
+    <h1>&#35831;&#36890;&#36807;&#31449;&#28857;&#22320;&#22336;&#25171;&#24320;&#21069;&#21488;</h1>
+    <p>&#19981;&#35201;&#30452;&#25509;&#21452;&#20987; HTML &#25991;&#20214;&#12290;</p>
+    <p>&#26412;&#22320;&#35831;&#20351;&#29992; http://localhost:3000/ &#65292;&#20844;&#32593;&#35831;&#20351;&#29992;&#20320;&#30340;&#27491;&#24335;&#22495;&#21517;&#12290;</p>
+  </section>
+  <main class="page">
+    <section class="hero-card">
+      <div>
+        <p class="hero-kicker">GOODKIDS</p>
+        <h1>&#24456;&#19981;&#39640;&#20852;&#20026;&#20320;&#26381;&#21153;</h1>
+      </div>
+      <div class="hero-status">
+        <p>&#24403;&#21069;&#21150;&#29702;&#21040;</p>
+        <strong id="current-serving-inline">A0000</strong>
+      </div>
+    </section>
+
+    <section class="layout">
+      <section class="panel panel-main">
+        <div class="info-grid">
+          <article class="info-card">
+            <p class="card-label">&#33829;&#19994;&#26102;&#38388;</p>
+            <p class="card-value">&#21608;&#19968;&#33267;&#21608;&#20116;&#65288;9:00-24:00&#65289;</p>
+          </article>
+          <article class="info-card">
+            <p class="card-label">&#36807;&#21495;&#35268;&#21017;</p>
+            <p class="card-value">&#35831;&#30041;&#24847;&#24494;&#20449;&#28040;&#24687;&#65292;&#36807;&#21495;&#26080;&#25928;&#65292;&#35831;&#37325;&#26032;&#21462;&#21495;&#12290;</p>
+          </article>
+        </div>
+
+        <section class="priority-section">
+          <label class="field task-name-field" for="task-name-input">
+            <span>&#20219;&#21153;&#21517;&#31216;</span>
+            <input class="input" id="task-name-input" type="text" maxlength="50" placeholder="&#35831;&#36755;&#20837;&#26412;&#27425;&#35201;&#22788;&#29702;&#30340;&#20219;&#21153;">
+          </label>
+
+          <div class="section-head">
+            <h2>&#20219;&#21153;&#32039;&#24613;&#31243;&#24230;</h2>
+            <p>&#32039;&#24613;&#20219;&#21153;&#20250;&#25490;&#22312;&#26222;&#36890;&#20219;&#21153;&#21069;&#38754;&#65292;&#21516;&#19968;&#35774;&#22791;&#21482;&#20801;&#35768;&#21462;&#21495;&#19968;&#27425;&#12290;</p>
+          </div>
+
+          <div class="priority-options" role="radiogroup" aria-label="&#20219;&#21153;&#32039;&#24613;&#31243;&#24230;">
+            <label class="priority-option">
+              <input type="radio" name="priority" value="normal" checked>
+              <span>&#26222;&#36890;&#20219;&#21153;</span>
+            </label>
+            <label class="priority-option">
+              <input type="radio" name="priority" value="urgent">
+              <span>&#32039;&#24613;&#20219;&#21153;</span>
+            </label>
+          </div>
+        </section>
+
+        <div class="summary-row">
+          <article class="summary-box">
+            <span>&#24453;&#22788;&#29702;&#20219;&#21153;</span>
+            <strong id="queue-count">0</strong>
+          </article>
+          <article class="summary-box">
+            <span>&#22788;&#29702;&#33021;&#21147;</span>
+            <strong><span id="daily-capacity">4</span> &#20010;&#20219;&#21153; / &#24037;&#20316;&#26085;</strong>
+          </article>
+        </div>
+
+        <button class="take-number-btn" id="take-number-btn" type="button">&#31435;&#21363;&#21462;&#21495;</button>
+        <p class="status-text" id="status-text"></p>
+      </section>
+
+      <aside class="side-column">
+        <section class="panel wechat-card">
+          <div class="section-head">
+            <h2>&#35746;&#38405;&#12304;&#22909;&#23567;&#23401;&#24494;&#20449;&#12305;</h2>
+            <p>&#21487;&#20197;&#26597;&#30475;&#25490;&#38431;&#36827;&#31243;&#12290;</p>
+          </div>
+          <div class="qr-shell">
+            <img class="qr-image" id="qr-image" alt="&#22909;&#23567;&#23401;&#24494;&#20449;&#20108;&#32500;&#30721;" src="/assets/wechat-qr.jpg">
+          </div>
+        </section>
+
+        <section class="panel express-card">
+          <div class="section-head">
+            <h2>&#21152;&#24613;&#36890;&#36947;</h2>
+            <p>&#22914;&#26524;&#26377;&#38656;&#35201;&#29305;&#21035;&#21152;&#24613;&#65292;&#21487;&#20197;&#32852;&#31995;&#22909;&#23567;&#23401;&#24494;&#20449;&#21152;&#38065;&#25554;&#38431;&#12290;</p>
+          </div>
+        </section>
+      </aside>
+    </section>
+
+    <section class="ticket-section" id="ticket-section" hidden>
+      <div class="ticket-card" id="ticket-card">
+        <div class="ticket-header">
+          <div>
+            <p class="ticket-label">&#21462;&#21495;&#21333;</p>
+            <h2>&#21495;&#30721;&#24050;&#29983;&#25104;</h2>
+          </div>
+          <span class="ticket-badge" id="ticket-priority-badge">&#26222;&#36890;&#20219;&#21153;</span>
+        </div>
+
+        <p class="ticket-alert" id="ticket-alert" hidden>&#21152;&#24613;&#20219;&#21153;&#24050;&#26631;&#35760;&#65292;&#20248;&#20808;&#25554;&#38431;&#22788;&#29702;&#12290;</p>
+
+        <div class="ticket-number-box">
+          <span>&#25105;&#30340;&#21495;&#30721;</span>
+          <strong id="ticket-number">A0001</strong>
+        </div>
+
+        <div class="ticket-task-box">
+          <span>&#20219;&#21153;&#21517;&#31216;</span>
+          <strong id="ticket-task-name">--</strong>
+        </div>
+
+        <div class="ticket-grid">
+          <article class="ticket-item">
+            <span>&#30446;&#21069;&#21150;&#29702;&#21040;</span>
+            <strong id="ticket-current-serving">A0000</strong>
+          </article>
+          <article class="ticket-item">
+            <span>&#21069;&#26041;&#24453;&#22788;&#29702;</span>
+            <strong id="ticket-remaining-tasks">0 &#20010;&#20219;&#21153;</strong>
+          </article>
+          <article class="ticket-item">
+            <span>&#39044;&#35745;&#31561;&#24453;&#26102;&#38388;</span>
+            <strong id="ticket-wait-days">0 &#20010;&#24037;&#20316;&#26085;</strong>
+          </article>
+          <article class="ticket-item">
+            <span>&#39044;&#35745;&#21150;&#29702;&#26085;&#26399;</span>
+            <strong id="ticket-estimated-date">--</strong>
+          </article>
+          <article class="ticket-item">
+            <span>&#21462;&#21495;&#26102;&#38388;</span>
+            <strong id="ticket-created-at">--</strong>
+          </article>
+        </div>
+
+        <div class="ticket-actions">
+          <button class="secondary-btn" id="share-ticket-btn" type="button">&#20998;&#20139;&#21462;&#21495;&#21333;</button>
+          <p class="share-status" id="share-status"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="/client.js"></script>
+</body>
+</html>

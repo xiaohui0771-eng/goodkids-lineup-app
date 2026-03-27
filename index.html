@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>取号</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="page">
+    <section class="hero-card">
+      <div>
+        <h1>很不高兴为你服务</h1>
+      </div>
+      <div class="hero-status">
+        <p>当前办理到</p>
+        <strong id="current-serving-inline">A0000</strong>
+      </div>
+    </section>
+
+    <section class="layout">
+      <section class="panel panel-main">
+        <div class="info-grid">
+          <article class="info-card">
+            <p class="card-label">营业时间</p>
+            <p class="card-value">周一至周五（9:00-24:00）</p>
+          </article>
+          <article class="info-card">
+            <p class="card-label">过号规则</p>
+            <p class="card-value">请留意微信消息，过号无效，请重新取号。</p>
+          </article>
+        </div>
+
+        <section class="priority-section">
+          <div class="section-head">
+            <h2>任务紧急程度</h2>
+            <p>紧急任务会排在普通任务前面。</p>
+          </div>
+
+          <div class="priority-options" role="radiogroup" aria-label="任务紧急程度">
+            <label class="priority-option">
+              <input type="radio" name="priority" value="normal" checked>
+              <span>普通任务</span>
+            </label>
+            <label class="priority-option">
+              <input type="radio" name="priority" value="urgent">
+              <span>紧急任务</span>
+            </label>
+          </div>
+        </section>
+
+        <div class="summary-row">
+          <article class="summary-box">
+            <span>待处理任务</span>
+            <strong id="queue-count">0</strong>
+          </article>
+          <article class="summary-box">
+            <span>处理能力</span>
+            <strong>4 个任务 / 工作日</strong>
+          </article>
+        </div>
+
+        <button class="take-number-btn" id="take-number-btn" type="button">立即取号</button>
+        <p class="status-text" id="status-text"></p>
+      </section>
+
+      <aside class="side-column">
+        <section class="panel wechat-card">
+          <div class="section-head">
+            <h2>订阅【好小孩微信】</h2>
+            <p>可查看排队进程。</p>
+          </div>
+          <div class="qr-shell">
+            <img class="qr-image" id="qr-image" alt="好小孩微信二维码">
+          </div>
+        </section>
+
+        <section class="panel express-card">
+          <div class="section-head">
+            <h2>加急通道</h2>
+            <p>如果有需要特别加急，可以联系好小孩微信加钱插队。</p>
+          </div>
+        </section>
+      </aside>
+    </section>
+
+    <section class="ticket-section" id="ticket-section" hidden>
+      <div class="ticket-card" id="ticket-card">
+        <div class="ticket-header">
+          <div>
+            <p class="ticket-label">取号单</p>
+            <h2>号码已生成</h2>
+          </div>
+          <span class="ticket-badge" id="ticket-priority-badge">普通任务</span>
+        </div>
+
+        <p class="ticket-alert" id="ticket-alert" hidden>加急任务已标记，优先插队处理。</p>
+
+        <div class="ticket-number-box">
+          <span>我的号码</span>
+          <strong id="ticket-number">A0001</strong>
+        </div>
+
+        <div class="ticket-grid">
+          <article class="ticket-item">
+            <span>目前办理到</span>
+            <strong id="ticket-current-serving">A0000</strong>
+          </article>
+          <article class="ticket-item">
+            <span>前方待处理</span>
+            <strong id="ticket-remaining-tasks">0 个任务</strong>
+          </article>
+          <article class="ticket-item">
+            <span>预计等待时间</span>
+            <strong id="ticket-wait-days">0 个工作日</strong>
+          </article>
+          <article class="ticket-item">
+            <span>预计办理日期</span>
+            <strong id="ticket-estimated-date">--</strong>
+          </article>
+          <article class="ticket-item">
+            <span>取号时间</span>
+            <strong id="ticket-created-at">--</strong>
+          </article>
+        </div>
+
+        <div class="ticket-actions">
+          <button class="secondary-btn" id="share-ticket-btn" type="button">分享取号单</button>
+          <p class="share-status" id="share-status"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

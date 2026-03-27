@@ -1,0 +1,23 @@
+{
+  "completedNo": 2,
+  "currentTask": null,
+  "lastIssuedNo": 3,
+  "settings": {
+    "dailyCapacity": 5,
+    "businessHoursStart": "09:00",
+    "businessHoursEnd": "24:00"
+  },
+  "queue": [
+    {
+      "id": "1774625870622-8d6a3e54427018",
+      "number": 3,
+      "visitorId": "0bf6d91d-06e7-46da-833a-c0dfaf78e442",
+      "priority": "normal",
+      "taskName": "睡觉",
+      "status": "queued",
+      "createdAt": "2026-03-27T15:37:50.622Z",
+      "startedAt": null,
+      "completedAt": null
+    }
+  ]
+}

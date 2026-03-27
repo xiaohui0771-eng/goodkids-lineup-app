@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>&#21518;&#21488;&#31649;&#29702;</title>
+  <style>
+    html.file-mode body {
+      margin: 0;
+      font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+      background: #f7f9fd;
+      color: #1f2937;
+    }
+
+    html.file-mode main {
+      display: none;
+    }
+
+    .file-warning {
+      display: none;
+    }
+
+    html.file-mode .file-warning {
+      display: block;
+      max-width: 720px;
+      margin: 48px auto;
+      padding: 24px;
+      border: 1px solid #dbe3ef;
+      border-radius: 20px;
+      background: #ffffff;
+      box-shadow: 0 18px 48px rgba(15, 23, 42, 0.08);
+    }
+  </style>
+  <script>
+    if (location.protocol === "file:") {
+      document.documentElement.classList.add("file-mode");
+    }
+  </script>
+  <link rel="stylesheet" href="/app.css">
+</head>
+<body class="manage-body">
+  <section class="file-warning">
+    <h1>&#35831;&#36890;&#36807;&#31449;&#28857;&#22320;&#22336;&#25171;&#24320;&#21518;&#21488;</h1>
+    <p>&#19981;&#35201;&#30452;&#25509;&#21452;&#20987; HTML &#25991;&#20214;&#12290;</p>
+    <p>&#26412;&#22320;&#35831;&#20351;&#29992; http://localhost:3000/manage &#65292;&#20844;&#32593;&#35831;&#20351;&#29992;&#27491;&#24335;&#32447;&#19978;&#22320;&#22336;&#12290;</p>
+  </section>
+  <main class="manage-page">
+    <section class="manage-shell" id="manage-shell">
+      <section class="panel manage-auth" id="manage-auth">
+        <p class="hero-kicker">Admin Access</p>
+        <h1>&#21518;&#21488;&#31649;&#29702;</h1>
+        <p class="manage-copy">&#38431;&#21015;&#25512;&#36827;&#12289;&#33829;&#19994;&#26102;&#38388;&#21644;&#33410;&#20551;&#26085;&#37117;&#22312;&#36825;&#37324;&#35843;&#25972;&#65292;&#39318;&#39029;&#19981;&#20250;&#26174;&#31034;&#36825;&#20010;&#20837;&#21475;&#12290;</p>
+
+        <form class="manage-form" id="login-form">
+          <label class="field">
+            <span>&#31649;&#29702;&#21592;&#23494;&#30721;</span>
+            <input class="input" id="password-input" type="password" autocomplete="current-password" required>
+          </label>
+
+          <button class="take-number-btn" id="login-btn" type="submit">&#30331;&#24405;&#21518;&#21488;</button>
+          <p class="status-text" id="auth-status"></p>
+        </form>
+      </section>
+
+      <section class="manage-panel" id="manage-panel" hidden>
+        <header class="panel manage-header">
+          <div>
+            <p class="hero-kicker">Admin Console</p>
+            <h1>&#38431;&#21015;&#25511;&#21046;&#21488;</h1>
+          </div>
+          <button class="secondary-btn" id="logout-btn" type="button">&#36864;&#20986;&#30331;&#24405;</button>
+        </header>
+
+        <div class="manage-grid">
+          <section class="panel manage-block">
+            <div class="section-head">
+              <h2>&#24403;&#21069;&#29366;&#24577;</h2>
+              <p id="business-status-text">&#27491;&#22312;&#35835;&#21462;&#26368;&#26032;&#29366;&#24577;&#12290;</p>
+            </div>
+
+            <div class="summary-row manage-summary">
+              <article class="summary-box">
+                <span>&#24403;&#21069;&#21150;&#29702;&#20013;</span>
+                <strong id="admin-current-task">&#26242;&#26080;</strong>
+                <span class="summary-task-name" id="admin-current-task-name">&#26410;&#36873;&#25321;&#20219;&#21153;</span>
+              </article>
+              <article class="summary-box">
+                <span>&#38431;&#21015;&#21097;&#20313;</span>
+                <strong id="admin-pending-count">0</strong>
+              </article>
+              <article class="summary-box">
+                <span>&#26368;&#21518;&#21457;&#21495;</span>
+                <strong id="admin-last-issued">A0000</strong>
+              </article>
+              <article class="summary-box">
+                <span>&#24050;&#21150;&#29702;&#21040;</span>
+                <strong id="admin-completed-no">A0000</strong>
+              </article>
+            </div>
+
+            <div class="manage-actions">
+              <button class="take-number-btn" id="advance-btn" type="button">&#32467;&#26463;&#24403;&#21069;&#20219;&#21153;&#24182;&#21150;&#29702;&#19979;&#19968;&#20301;</button>
+              <p class="status-text" id="advance-status"></p>
+            </div>
+          </section>
+
+          <section class="panel manage-block">
+            <div class="section-head">
+              <h2>&#22522;&#30784;&#37197;&#32622;</h2>
+              <p>&#20445;&#23384;&#21518;&#21069;&#21488;&#36718;&#35810;&#20250;&#33258;&#21160;&#21516;&#27493;&#12290;</p>
+            </div>
+
+            <form class="manage-form" id="settings-form">
+              <div class="manage-form-grid">
+                <label class="field">
+                  <span>&#27599;&#26085;&#22788;&#29702;&#33021;&#21147;</span>
+                  <input class="input" id="daily-capacity-input" type="number" min="1" required>
+                </label>
+                <label class="field">
+                  <span>&#33829;&#19994;&#24320;&#22987;</span>
+                  <input class="input" id="hours-start-input" type="time" required>
+                </label>
+                <label class="field">
+                  <span>&#33829;&#19994;&#32467;&#26463;</span>
+                  <input class="input" id="hours-end-input" type="time" required>
+                </label>
+              </div>
+
+              <div class="manage-actions">
+                <button class="secondary-btn" id="save-settings-btn" type="submit">&#20445;&#23384;&#22522;&#30784;&#37197;&#32622;</button>
+                <p class="status-text" id="settings-status"></p>
+              </div>
+            </form>
+          </section>
+
+          <section class="panel manage-block">
+            <div class="section-head">
+              <h2>&#33410;&#20551;&#26085;&#19982;&#35843;&#20241;</h2>
+              <p>&#19968;&#34892;&#19968;&#20010;&#26085;&#26399;&#65292;&#26684;&#24335;&#22266;&#23450;&#20026; YYYY-MM-DD&#12290;</p>
+            </div>
+
+            <form class="manage-form" id="calendar-form">
+              <div class="manage-form-grid manage-form-grid-wide">
+                <label class="field">
+                  <span>&#33410;&#20551;&#26085;</span>
+                  <textarea class="input textarea" id="holidays-input" rows="8" placeholder="2026-05-01"></textarea>
+                </label>
+                <label class="field">
+                  <span>&#35843;&#20241;&#26085;</span>
+                  <textarea class="input textarea" id="workdays-input" rows="8" placeholder="2026-05-09"></textarea>
+                </label>
+              </div>
+
+              <div class="manage-actions">
+                <button class="secondary-btn" id="save-calendar-btn" type="submit">&#20445;&#23384;&#26085;&#21382;&#37197;&#32622;</button>
+                <p class="status-text" id="calendar-status"></p>
+              </div>
+            </form>
+          </section>
+
+          <section class="panel manage-block manage-queue">
+            <div class="section-head">
+              <h2>&#31561;&#24453;&#38431;&#21015;</h2>
+              <p>&#21152;&#24613;&#20219;&#21153;&#20250;&#26174;&#31034;&#22312;&#38431;&#21015;&#21069;&#38754;&#12290;</p>
+            </div>
+
+            <div class="queue-table" id="queue-table"></div>
+          </section>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <script src="/admin-client.js"></script>
+</body>
+</html>
