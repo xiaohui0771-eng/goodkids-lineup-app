@@ -1,17 +1,3 @@
 {
-  "cleanUrls": true,
-  "rewrites": [
-    {
-      "source": "/",
-      "destination": "/site/front.html"
-    },
-    {
-      "source": "/manage",
-      "destination": "/site/manage/dashboard.html"
-    },
-    {
-      "source": "/manage/",
-      "destination": "/site/manage/dashboard.html"
-    }
-  ]
+  "cleanUrls": true
 }

@@ -1,15 +1,53 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>取号</title>
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    html.file-mode body {
+      margin: 0;
+      font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+      background: #f7f9fd;
+      color: #1f2937;
+    }
+
+    html.file-mode main {
+      display: none;
+    }
+
+    .file-warning {
+      display: none;
+    }
+
+    html.file-mode .file-warning {
+      display: block;
+      max-width: 720px;
+      margin: 48px auto;
+      padding: 24px;
+      border: 1px solid #dbe3ef;
+      border-radius: 20px;
+      background: #ffffff;
+      box-shadow: 0 18px 48px rgba(15, 23, 42, 0.08);
+    }
+  </style>
+  <script>
+    if (location.protocol === "file:") {
+      document.documentElement.classList.add("file-mode");
+    }
+  </script>
+  <link rel="stylesheet" href="/app.css">
 </head>
 <body>
+  <section class="file-warning">
+    <h1>请通过站点地址打开前台</h1>
+    <p>不要直接双击 HTML 文件。</p>
+    <p>本地请使用 http://localhost:3000/ ，公网请使用你的正式域名。</p>
+  </section>
   <main class="page">
     <section class="hero-card">
       <div>
+        <p class="hero-kicker">GOODKIDS</p>
         <h1>很不高兴为你服务</h1>
       </div>
       <div class="hero-status">
@@ -32,9 +70,14 @@
         </div>
 
         <section class="priority-section">
+          <label class="field task-name-field" for="task-name-input">
+            <span>任务名称</span>
+            <input class="input" id="task-name-input" type="text" maxlength="50" placeholder="请输入本次要处理的任务。">
+          </label>
+
           <div class="section-head">
             <h2>任务紧急程度</h2>
-            <p>紧急任务会排在普通任务前面。</p>
+            <p>紧急任务会排在普通任务前面，同一设备只允许取号一次。</p>
           </div>
 
           <div class="priority-options" role="radiogroup" aria-label="任务紧急程度">
@@ -56,7 +99,7 @@
           </article>
           <article class="summary-box">
             <span>处理能力</span>
-            <strong>4 个任务 / 工作日</strong>
+            <strong><span id="daily-capacity">4</span> 个任务 / 工作日</strong>
           </article>
         </div>
 
@@ -68,10 +111,10 @@
         <section class="panel wechat-card">
           <div class="section-head">
             <h2>订阅【好小孩微信】</h2>
-            <p>可查看排队进程。</p>
+            <p>可以查看排队进程。</p>
           </div>
           <div class="qr-shell">
-            <img class="qr-image" id="qr-image" alt="好小孩微信二维码">
+            <img class="qr-image" id="qr-image" alt="好小孩微信二维码" src="/assets/wechat-qr-full.jpg">
           </div>
         </section>
 
@@ -99,6 +142,11 @@
         <div class="ticket-number-box">
           <span>我的号码</span>
           <strong id="ticket-number">A0001</strong>
+        </div>
+
+        <div class="ticket-task-box">
+          <span>任务名称</span>
+          <strong id="ticket-task-name">--</strong>
         </div>
 
         <div class="ticket-grid">
@@ -132,6 +180,6 @@
     </section>
   </main>
 
-  <script src="script.js"></script>
+  <script src="/client.js"></script>
 </body>
 </html>
